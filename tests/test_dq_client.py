@@ -11,7 +11,7 @@ Tests for `dq_client` module.
 import pytest
 
 
-from dq_client import dq_client
+from dq import client
 
 
 @pytest.fixture
