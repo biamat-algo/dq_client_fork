@@ -10,7 +10,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    # TODO: put package requirements here
+    'requests == 2.11.1'
 ]
 
 test_requirements = [
@@ -24,12 +24,11 @@ setup(
     long_description=readme + '\n\n' + history,
     author="Mikołaj Olszewski",
     author_email='mikolaj.olszewski@algolytics.pl',
-    url='https://github.com/mikus/dq_client',
+    url='https://github.com/Algolytics/dq_client',
     packages=[
-        'dq_client',
+        'dq',
     ],
-    package_dir={'dq_client':
-                 'dq_client'},
+    package_dir={'dq': 'dq'},
     include_package_data=True,
     install_requires=requirements,
     license="Apache Software License 2.0",
@@ -40,9 +39,6 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
