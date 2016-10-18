@@ -63,7 +63,7 @@ Create new job
 
     job = dq.submit_job(self, job_config, input_file='my_file.csv', input_file_encoding='windows-1250')  # with data inside file
 
-    print(job.job_id)
+    print(job.id)
     print(job.name)
     print(job.status)
     ...
