@@ -13,9 +13,13 @@ Python client for dataquality.pl
         :target: https://dq-client.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/mikus/dq_client/shield.svg
-     :target: https://pyup.io/repos/github/Algolytics/dq_client/
+.. image:: https://pyup.io/repos/github/algolytics/dq_client/shield.svg
+     :target: https://pyup.io/repos/github/algolytics/dq_client/
      :alt: Updates
+
+.. image:: https://pyup.io/repos/github/algolytics/dq_client/python-3-shield.svg
+     :target: https://pyup.io/repos/github/algolytics/dq_client/
+     :alt: Python 3
 
 
 Python library which allows to use http://dataquality.pl in easy way.
