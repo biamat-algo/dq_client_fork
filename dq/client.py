@@ -16,9 +16,10 @@ class DQClient:
 
     def list_jobs(self):
         # GET 'https://app.dataquality.pl/api/v1/jobs'
-        return self.request_client.get('/jobs')
+        return self.request_client.get('/jobs', body_as_json=True)
 
-    def submit_job(self, config, input_data=None, input_file=None, input_file_encoding='utf-8'):
+    def submit_job(self, config, input_data=None, input_file=None,
+                   input_file_encoding='utf-8'):
         # POST 'https://app.dataquality.pl/api/v1/jobs'
         parts = {
             'config': {
@@ -34,20 +35,21 @@ class DQClient:
         if input_data:
             parts['file']['content'] = str(input_data)
         else:
-            parts['file']['content'] = open(input_file, 'r', encoding=input_file_encoding)
-            parts['file']['content-type'] = '{}; charset=utf-8'.format(parts['file']['content-type']) #, input_file_encoding)
-            #config['input_format']['code_page'] = input_file_encoding
-            #parts['config']['content'] = json.dumps(config)
+            parts['file']['content'] = open(input_file, 'r',
+                                            encoding=input_file_encoding)
 
-        return self.request_client.post_multipart('/jobs', parts=parts)
+        return self.request_client.post_multipart('/jobs', parts=parts,
+                                                  body_as_json=True)
 
     def job_status(self, job_id):
         # GET 'https://app.dataquality.pl/api/v1/jobs/{{job_id}}/status'
-        return self.request_client.get('/jobs/{}/status'.format(job_id))
+        return self.request_client.get('/jobs/{}/status'.format(job_id),
+                                       body_as_json=True)
 
     def job_result(self, job_id):
         # GET 'https://app.dataquality.pl/api/v1/jobs/{{job_id}}'
-        return self.request_client.get('/jobs/{}'.format(job_id))
+        return self.request_client.get('/jobs/{}'.format(job_id),
+                                       body_as_json=True)
 
     def job_result_data(self, job_id, out_file=None):
         # GET 'https://app.dataquality.pl/api/v1/jobs/{{job_id}}/result'
@@ -68,8 +70,9 @@ class DQClient:
 
     def stop_job(self, job_id):
         # PUT 'https://app.dataquality.pl/api/v1/jobs/{{job_id}}/stop'
-        return self.request_client.put('/jobs/{}/stop'.format(job_id))
+        return self.request_client.put('/jobs/{}/stop'.format(job_id),
+                                       body_as_json=True)
 
     def account_status(self):
         # GET 'https://app.dataquality.pl/api/v1/account/status'
-        return self.request_client.get('/account/status')
+        return self.request_client.get('/account/status', body_as_json=True)

@@ -6,7 +6,7 @@ Python client for dataquality.pl
 .. image:: https://img.shields.io/pypi/v/dq_client.svg
         :target: https://pypi.python.org/pypi/dq_client
 
-.. image:: https://img.shields.io/travis/mikus/dq_client.svg
+.. image:: https://img.shields.io/travis/Algolytics/dq_client.svg
         :target: https://travis-ci.org/Algolytics/dq_client
 
 .. image:: https://readthedocs.org/projects/dq-client/badge/?version=latest
@@ -22,7 +22,7 @@ Python client for dataquality.pl
      :alt: Python 3
 
 
-Python library which allows to use http://dataquality.pl in easy way.
+Python library which allows to use http://dataquality.pl in the easy way.
 
 
 * Free software: Apache Software License 2.0
@@ -32,13 +32,13 @@ Python library which allows to use http://dataquality.pl in easy way.
 Features
 --------
 
-* TODO
+* Full API client
+* Automatic encoding file conversion
 
 Credits
 ---------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was created by Algolytics_ dev team.
 
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+.. _Algolytics: http://algolytics.com
 
