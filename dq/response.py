@@ -11,7 +11,7 @@ class Response:
         self.status = status
         self.content = content
 
-    def isok(self):
+    def is_ok(self):
         return self.status and int(self.status) < 400
 
     def json(self):

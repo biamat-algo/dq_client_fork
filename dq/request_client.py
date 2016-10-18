@@ -18,36 +18,25 @@ class RequestClient:
     def __make_url(self, path):
         return '{}/{}'.format(self.base_url, path)
 
-    def __get_body(self, request, body_as_json):
-        if body_as_json:
-            return request.json()
-        else:
-            return request.text
-
-    def get(self, path, headers={}, body_as_json=False):
+    def get(self, path, headers={}):
         response = self.session.get(self.__make_url(path), headers=headers)
-        return Response('GET', response.status_code,
-                        self.__get_body(response, body_as_json))
+        return Response('GET', response.status_code, response.text)
 
-    def post(self, path, headers={}, body_as_json=False):
+    def post(self, path, headers={}):
         response = self.session.post(self.__make_url(path), headers=headers)
-        return Response('POST', response.status_code,
-                        self.__get_body(response, body_as_json))
+        return Response('POST', response.status_code, response.text)
 
-    def put(self, path, headers={}, body_as_json=False):
+    def put(self, path, headers={}):
         response = self.session.put(self.__make_url(path), headers=headers)
-        return Response('PUT', response.status_code,
-                        self.__get_body(response, body_as_json))
+        return Response('PUT', response.status_code, response.text)
 
-    def delete(self, path, headers={}, body_as_json=False):
+    def delete(self, path, headers={}):
         response = self.session.get(self.__make_url(path), headers=headers)
-        return Response('DELETE', response.status_code,
-                        self.__get_body(response, body_as_json))
+        return Response('DELETE', response.status_code, response.text)
 
-    def post_multipart(self, path, parts={}, headers={}, body_as_json=False):
+    def post_multipart(self, path, parts={}, headers={}):
         files = {k: (v['filename'], v['content'], v['content-type'])
                  for k, v in parts.items()}
         response = self.session.post(self.__make_url(path), headers=headers,
                                      files=files)
-        return Response('POST', response.status_code,
-                        self.__get_body(response, body_as_json))
+        return Response('POST', response.status_code, response.text)
