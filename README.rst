@@ -4,7 +4,7 @@ Python client for dataquality.pl
 
 
 .. image:: https://img.shields.io/pypi/v/dq_client.svg
-        :target: https://pypi.python.org/pypi/dq_client
+        :target: https://pypi.python.org/pypi/dq-client
 
 .. image:: https://img.shields.io/travis/Algolytics/dq_client.svg
         :target: https://travis-ci.org/Algolytics/dq_client

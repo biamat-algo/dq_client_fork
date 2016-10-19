@@ -57,9 +57,9 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `dq_client` for local development.
+Ready to contribute? Here's how to set up `dq-client` for local development.
 
-1. Fork the `dq_client` repo on GitHub.
+1. Fork the `dq-client` repo on GitHub.
 2. Clone your fork locally::
 
     $ git clone git@github.com:your_name_here/dq_client.git
@@ -67,7 +67,7 @@ Ready to contribute? Here's how to set up `dq_client` for local development.
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
     $ mkvirtualenv dq_client
-    $ cd dq_client/
+    $ cd dq-client/
     $ python setup.py develop
 
 4. Create a branch for local development::

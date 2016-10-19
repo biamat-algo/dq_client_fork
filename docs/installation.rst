@@ -12,7 +12,7 @@ To install Python client for dataquality.pl, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install dq_client
+    $ pip install dq-client
 
 This is the preferred method to install Python client for dataquality.pl, as it will always install the most recent stable release.
 

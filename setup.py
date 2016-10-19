@@ -18,7 +18,7 @@ test_requirements = [
 ]
 
 setup(
-    name='dq_client',
+    name='dq-client',
     version='0.1.0',
     description="Python library which allows to use http://dataquality.pl in easy way.",
     long_description=readme + '\n\n' + history,
@@ -33,7 +33,7 @@ setup(
     install_requires=requirements,
     license="Apache Software License 2.0",
     zip_safe=False,
-    keywords='dq_client',
+    keywords='dataquality dq dq-client',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',

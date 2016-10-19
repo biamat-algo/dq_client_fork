@@ -58,7 +58,7 @@ test-all: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source dq_client py.test
+	coverage run --source dq py.test
 
 		coverage report -m
 		coverage html

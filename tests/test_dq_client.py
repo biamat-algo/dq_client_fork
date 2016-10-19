@@ -5,7 +5,7 @@
 test_dq_client
 ----------------------------------
 
-Tests for `dq_client` module.
+Tests for `dq` module.
 """
 
 import pytest
