@@ -33,7 +33,7 @@ setup(
     install_requires=requirements,
     license="Apache Software License 2.0",
     zip_safe=False,
-    keywords='dataquality dq dq-client',
+    keywords=['dataquality', 'dq', 'dq-client'],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
