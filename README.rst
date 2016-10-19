@@ -17,10 +17,6 @@ Python client for dataquality.pl
      :target: https://pyup.io/repos/github/algolytics/dq_client/
      :alt: Updates
 
-.. image:: https://pyup.io/repos/github/algolytics/dq_client/python-3-shield.svg
-     :target: https://pyup.io/repos/github/algolytics/dq_client/
-     :alt: Python 3
-
 
 Python library which allows to use http://dataquality.pl in the easy way.
 
