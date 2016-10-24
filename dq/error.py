@@ -3,5 +3,5 @@
 
 class DQError(ValueError):
 
-    def __init__(self, *args, **kwargs):
-        super.__init__(*args, **kwargs)
+    def __init__(self, status, message):
+        super().__init__(status, message)
