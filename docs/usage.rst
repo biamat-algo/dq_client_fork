@@ -4,7 +4,7 @@ Usage
 
 To use Python client for dataquality.pl in a project::
 
-    from dq import DQClient
+    from dq import DQClient, JobConfig
 
 
     dq = DQClient('https://app.dataquality.pl', user='<USER_EMAIL>', token='<API_TOKEN>')
@@ -55,18 +55,52 @@ Create new job
 
     job_config = JobConfig('my job')
     job_config.input_format(field_separator=';', text_delimiter='"', has_header=True)
-    job_config.input_column(0, name='id', function='PRZEPISZ')
-    job_config.input_column(1, name='adres', function='CALY_ADRES')
+    job_config.input_column(0, name='ID', function='PRZEPISZ')
+    job_config.input_column(1, name='ADRES', function='DANE_OGOLNE')
+	job_config.module_std(address=1)
     job_config.extend(gus=True, geocode=True, diagnostic=True)
 
-    job = dq.submit_job(self, job_config, input_data=input_data)                                         # with data in a variable
+    job = dq.submit_job(job_config, input_data=input_data)                                         # with data in a variable
 
-    job = dq.submit_job(self, job_config, input_file='my_file.csv', input_file_encoding='windows-1250')  # with data inside file
+    job = dq.submit_job(job_config, input_file='my_file.csv', input_file_encoding='windows-1250')  # with data inside file
 
     print(job.id)
     print(job.name)
     print(job.status)
     ...
+
+Create new deduplication job
+--------------
+::
+
+	input_data = '''unikalne_id;imie_i_nazwisko;kod_pocztowy;miejscowosc;adres;email;tel;CrmContactNumber;data
+	1;Jan Kowalski;37-611;Cieszanów ;Dachnów 189;abc@wp.pl;605936000;abc123;2017-11-08 12:00:00.000
+	2;Adam Mickiewicz Longchamps de Berier;66-400;Gorzów Wlkp.;Widok 24;qqq@ft.com;48602567000;a2b2c2;2017-11-08 12:00:00.000
+	3;Barbara Łęcka;76-200;Słupsk;Banacha 7;bb@gazeta.pl;79174000;emc2;2017-11-08 12:00:00.000
+	4;KAROL NOWAK;22-122;LEŚNIOWICE;RAKOLUPY DU—E 55;kn@ll.pp;0;f112358;2017-11-08 12:00:00.000
+	5;Anna Maria Jopek;34-722;Podwilk;Podwilk 464;amj@gmail.com;606394000;eipi10;2017-11-08 12:00:00.000
+	6;Mariusz Robert;37-611;Cieszanów ;Dachnów 189;abc@wp.pl;605936000;abc123;2017-11-08 12:00:00.000
+	'''
+
+	job_config = JobConfig('pr2')
+	job_config.input_format(field_separator=';', text_delimiter='"', has_header=True)
+	job_config.input_column(0, name='unikalne_id', function='ID_REKORDU')
+	job_config.input_column(1, name='imie_i_nazwisko', function='IMIE_I_NAZWISKO')
+	job_config.input_column(2, name='kod_pocztowy', function='KOD_POCZTOWY')
+	job_config.input_column(3, name='miejscowosc', function='MIEJSCOWOSC')
+	job_config.input_column(4, name='adres', function='ULICA_NUMER_DOMU_I_MIESZKANIA')
+	job_config.input_column(5, name='email', function='EMAIL1')
+	job_config.input_column(6, name='tel', function='TELEFON1')
+	job_config.input_column(7, name='CrmContactNumber', function='PRZEPISZ')
+	job_config.input_column(8, name='data', function='CZAS_AKTUALIZACJI')
+	job_config.deduplication(on=True)
+	job_config.module_std(address=True, names=True, contact=True)
+	job_config.extend(gus=True, geocode=True, diagnostic=True)
+
+	job = dq.submit_job(job_config, input_data=input_data)  
+
+	print(job)
+	...
 
 Available column functions:
 
