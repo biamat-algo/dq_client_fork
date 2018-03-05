@@ -41,7 +41,7 @@ List jobs
         print(job.start_date)        # job start date
         print(job.end_date)          # job end date
         print(job.source_records)    # how many records were applied
-        print(job.processed_record)  # how many records were processed
+        print(job.processed_records) # how many records were processed
         print(job.price)             # price for processed records
 
 
@@ -54,11 +54,11 @@ Create new job
     '''
 
     job_config = JobConfig('my job')
-    job_config.input_format(field_separator=';', text_delimiter='"', has_header=True)
+    job_config.input_format(field_separator=',', text_delimiter='"', has_header=True)
     job_config.input_column(0, name='ID', function='PRZEPISZ')
     job_config.input_column(1, name='ADRES', function='DANE_OGOLNE')
-	job_config.module_std(address=1)
-    job_config.extend(gus=True, geocode=True, diagnostic=True)
+    job_config.module_std(address=1)
+    job_config.extend(gus=True, geocode=True)
 
     job = dq.submit_job(job_config, input_data=input_data)                                         # with data in a variable
 
@@ -163,8 +163,8 @@ Retrieve job report
 
     report = dq.job_report('3f14e25e-9f6d-41ff-a4cb-942743a37b73')  # input parameter: job id
 
-    print(report.quantity_issues)
-    print(report.quantity_names)
+    print(report.quality_issues)
+    print(report.quality_names)
     print(report.results)
 
 
