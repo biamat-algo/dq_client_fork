@@ -4,6 +4,10 @@
 Installation
 ============
 
+Requirements
+------------
+
+For the full functionality Python 3 is required.
 
 Stable release
 --------------
