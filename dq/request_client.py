@@ -31,7 +31,7 @@ class RequestClient:
         return Response('PUT', response.status_code, response.text)
 
     def delete(self, path, headers={}):
-        response = self.session.get(self.__make_url(path), headers=headers)
+        response = self.session.delete(self.__make_url(path), headers=headers)
         return Response('DELETE', response.status_code, response.text)
 
     def post_multipart(self, path, parts={}, headers={}):
