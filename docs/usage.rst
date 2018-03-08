@@ -141,6 +141,18 @@ Available column functions:
     * POMIN
 
 
+To process input columns, you must enable the corresponding module. Method module_std is used to set active modules:
+* address
+* names
+* contact
+* id_numbers
+
+For address module to be started it is necessary to ensure at least one column with the role listed below:
+* DANE_OGOLNE
+* KOD_POCZTOWY
+* MIEJSCOWOSC
+
+ 
 Check job state
 ---------------
 ::
