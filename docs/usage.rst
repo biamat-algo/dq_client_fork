@@ -142,15 +142,39 @@ Available column functions:
 
 
 To process input columns, you must enable the corresponding module. Method module_std is used to set active modules:
+
 * address
 * names
 * contact
 * id_numbers
 
 For address module to be started it is necessary to ensure at least one column with the role listed below:
-* DANE_OGOLNE
-* KOD_POCZTOWY
-* MIEJSCOWOSC
+
+    * DANE_OGOLNE
+    * KOD_POCZTOWY
+    * MIEJSCOWOSC
+
+Analogously for other modules:
+
+* names require one of
+    * DANE_OGOLNE
+    * IMIE
+    * NAZWISKO
+    * IMIE_I_NAZWISKO
+    * NAZWA_PODMIOTU
+
+* contact
+    * DANE_OGOLNE
+    * EMAIL1
+    * EMAIL2
+    * TELEFON1
+    * TELEFON2
+
+* id
+    * DANE_OGOLNE
+    * PESEL
+    * NIP
+    * REGON
 
  
 Check job state
