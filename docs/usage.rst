@@ -150,9 +150,9 @@ To process input columns, you must enable the corresponding module. Method modul
 
 For address module to be started it is necessary to ensure at least one column with the role listed below:
 
-    * DANE_OGOLNE
-    * KOD_POCZTOWY
-    * MIEJSCOWOSC
+* DANE_OGOLNE
+* KOD_POCZTOWY
+* MIEJSCOWOSC
 
 Analogously for other modules:
 
