@@ -5,6 +5,6 @@ from .job import JobConfig
 
 __author__ = """Mikołaj Olszewski"""
 __email__ = 'mikolaj.olszewski@algolytics.pl'
-__version__ = '0.1.0'
+__version__ = '0.4.0'
 
 __all__ = ['DQClient', 'JobConfig']

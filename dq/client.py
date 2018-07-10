@@ -61,18 +61,14 @@ class DQClient:
         """ GET 'https://app.dataquality.pl/api/v1/jobs/{{job_id}}' """
         return self.request_client.get('/jobs/{}'.format(job_id))
 
-    def job_results(self, job_id, out_file=None):
+    def job_results(self, job_id, out_file=None, code_page = 'utf-8'):
         """ GET 'https://app.dataquality.pl/api/v1/jobs/{{job_id}}/result' """
         response = self.request_client.get('/jobs/{}/result'.format(job_id))
         if not response.is_ok():
             raise DQError(status=response.status, message=response.content)
         if out_file:
-            try:
-                file = open(out_file, 'w')
+            with open(out_file, 'w', encoding=code_page) as file:
                 file.write(response.content)
-                file.close()
-            except OSError:
-                print("No such file or directory.")
 
     def delete_job(self, job_id):
         """ DELETE 'https://app.dataquality.pl/api/v1/jobs/{{job_id}}' """
