@@ -41,7 +41,7 @@ class JobConfig:
         self._input_format = {
             "field_separator": ",",
             "text_delimiter": "\"",
-            "header": 1
+            "code_page": "utf-8"
         }
         self._input_columns = {}
         self._extend = {
@@ -58,16 +58,21 @@ class JobConfig:
             "contact": 0,
             "id_numbers": 0
         }
+        self._client = {
+            "name": "",
+            "mode": ""
+        }
+        
         self._deduplication = {
             "on": 0,
             "incremental": 0
         } 
 	
     def input_format(self, field_separator=",", text_delimiter="\"",
-                     has_header=True):
+                     code_page="utf-8"):
         self._input_format["field_separator"] = field_separator
         self._input_format["text_delimiter"] = text_delimiter
-        self._input_format["header"] = self.__boolean_to_num(has_header)
+        self._input_format["code_page"] = code_page
 
     def input_column(self, idx, name, function):
         self._input_columns[idx] = {"no": idx, "name": name,
@@ -93,6 +98,10 @@ class JobConfig:
     def deduplication(self, on = False, incremental = False):
         self._deduplication["on"] = self.__boolean_to_num(on)
         self._deduplication["incremental"] = self.__boolean_to_num(incremental)
+        
+    def client(self, name, mode):
+        self._client["name"] = name
+        self._client["mode"] = mode
 			
     @staticmethod
     def __boolean_to_num(value):
@@ -105,5 +114,6 @@ class JobConfig:
             "input_columns": list(self._input_columns.values()),
             "extend": self._extend,
             "module_std": self._module_std,
-            "deduplication": self._deduplication
+            "deduplication": self._deduplication,
+            "client": self._client
         }
