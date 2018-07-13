@@ -18,8 +18,9 @@ class RequestClient:
     def __make_url(self, path):
         return '{}/{}'.format(self.base_url, path)
 
-    def get(self, path, headers={}):
+    def get(self, path, headers={}, encoding=None):
         response = self.session.get(self.__make_url(path), headers=headers)
+        response.encoding = encoding
         return Response('GET', response.status_code, response.text)
 
     def post(self, path, headers={}):

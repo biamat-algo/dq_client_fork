@@ -24,8 +24,7 @@ class DQClient:
         return self.request_client.get('/jobs')
 
     @from_response(Job)
-    def submit_job(self, config, input_data=None, input_file=None,
-                   input_file_encoding='utf-8'):
+    def submit_job(self, config, input_data=None, input_file=None):
         """ POST 'https://app.dataquality.pl/api/v1/jobs' """
         parts = {
             'config': {
@@ -41,9 +40,7 @@ class DQClient:
         if input_data:
             parts['file']['content'] = str(input_data)
         else:
-            parts['file']['content'] = open(input_file, 'r',
-                                            encoding=input_file_encoding)
-
+            parts['file']['content'] = open(input_file, 'rb')
         return self.request_client.post_multipart('/jobs', parts=parts)
 
     def job_state(self, job_id):
@@ -61,13 +58,13 @@ class DQClient:
         """ GET 'https://app.dataquality.pl/api/v1/jobs/{{job_id}}' """
         return self.request_client.get('/jobs/{}'.format(job_id))
 
-    def job_results(self, job_id, out_file=None, code_page = 'utf-8'):
+    def job_results(self, job_id, out_file=None, encoding='utf-8'):
         """ GET 'https://app.dataquality.pl/api/v1/jobs/{{job_id}}/result' """
-        response = self.request_client.get('/jobs/{}/result'.format(job_id))
+        response = self.request_client.get('/jobs/{}/result'.format(job_id), encoding=encoding)
         if not response.is_ok():
             raise DQError(status=response.status, message=response.content)
         if out_file:
-            with open(out_file, 'w', encoding=code_page) as file:
+            with open(out_file, 'w', encoding=encoding) as file:
                 file.write(response.content)
 
     def delete_job(self, job_id):
