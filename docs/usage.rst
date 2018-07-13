@@ -62,7 +62,7 @@ Create new job
 
     job = dq.submit_job(job_config, input_data=input_data)                                         # with data in a variable
 
-    job = dq.submit_job(job_config, input_file='my_file.csv', input_file_encoding='windows-1250')  # with data inside file
+    job = dq.submit_job(job_config, input_file='my_file.csv')                                      # with data inside file
 
     print(job.id)
     print(job.name)
@@ -97,7 +97,7 @@ Create new deduplication job
 	job_config.module_std(address=True, names=True, contact=True)
 	job_config.extend(gus=True, geocode=True, diagnostic=True)
 
-	job = dq.submit_job(job_config, input_data=input_data)  
+	job = dq.submit_job(job_config, input_data=input_data)
 
 	print(job)
 	...
@@ -176,7 +176,7 @@ Analogously for other modules:
     * NIP
     * REGON
 
- 
+
 Check job state
 ---------------
 ::
