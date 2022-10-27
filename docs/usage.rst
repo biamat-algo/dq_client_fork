@@ -54,7 +54,7 @@ Create new job
     '''
 
     job_config = JobConfig('my job')
-    job_config.input_format(field_separator=',', text_delimiter='"', has_header=True)
+    job_config.input_format(field_separator=',', text_delimiter='"')
     job_config.input_column(0, name='ID', function='PRZEPISZ')
     job_config.input_column(1, name='ADRES', function='DANE_OGOLNE')
     job_config.module_std(address=1)
@@ -83,7 +83,7 @@ Create new deduplication job
 	'''
 
 	job_config = JobConfig('pr2')
-	job_config.input_format(field_separator=';', text_delimiter='"', has_header=True)
+	job_config.input_format(field_separator=';', text_delimiter='"')
 	job_config.input_column(0, name='unikalne_id', function='ID_REKORDU')
 	job_config.input_column(1, name='imie_i_nazwisko', function='IMIE_I_NAZWISKO')
 	job_config.input_column(2, name='kod_pocztowy', function='KOD_POCZTOWY')
