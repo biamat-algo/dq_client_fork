@@ -14,16 +14,18 @@ deploy:
       secure: "i2APzmr4qBzYZ1OWiyzrzb3D8K6owG83DnXcblb6s2SD8yG4uG2QJJY2vcc57EN5TRIIbXO1dXlVG+9GbPx9wjh4UGsbRxNghvW9FjyQ+znu+qGszgmUYX16s6gJ3MdoRKagr0Ww8PHR2xMuwibXv/nS2enlFkNvSexLbybUA8i3DqxPzkrYMJ7DL/au2yZw5IN1xuFVjku0mDdxcvCJGPo12O6q0DGwckIpBjPwQ3fxsFLzXpTmoEOkNkzRUsBBXWU2xyFI4zmsEtFL172IlRAMp2u4GP/HUeP/2fibFtMiBvEhOkWondjFyJTXLqkOh9NrD47x+qkVoBAdxqmWNH/BfCEgBUnwG29KNq9KBuBMKG+V8Zjqe4WsKiiNr+XFv3bYna+kRMtoobe1CoVLzAIGZT4uhLrmPWEX5LvE0vEqJfCGPrgJv8zu2ndeOP68jWbUM80oIYEMoSR4/Ybo6vYMNnWZ8N/cwZ0IkP4niBGSINopdN75tJ5kzC6B4okdOkHL/7h558Lda/XHHUdaWSNwGKp/ZUgA1khfS/aRNZRqc5kNjn1E5NIj40zHKLWaVq5q1bTMzbvaE/FLmhKCMEZBb3MBNYCdRsQSEhv8IB9tf+QSkprIqzqfXg+m5zS0IigWtO/jiErUuUqudN3e9ltGsMi2k7pbgQZErXhiiEw="
     #  edge: true
   dpl_version: "1.10.16"
-env:
-  - TOXENV=python3.7
-  - TOXENV=python3.8
-  - TOXENV=python3.9
-  - TOXENV=python3.10
-  - TOXENV=python3.11
-  - TOXENV=python3.12
-  - TOXENV=python3.13
+#env:
+#  - TOXENV=python3.7
+#  - TOXENV=python3.8
+#  - TOXENV=python3.9
+#  - TOXENV=python3.10
+#  - TOXENV=python3.11
+#  - TOXENV=python3.12
+#  - TOXENV=python3.13
 install: pip install -U tox
 language: python
-python: 3.8
-script: tox -e ${TOXENV}
+python: 
+  - 3.8
+  - 3.9
+script: tox
 
