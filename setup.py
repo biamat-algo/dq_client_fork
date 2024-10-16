@@ -19,7 +19,7 @@ test_requirements = [
 
 setup(
     name='dq-client',
-    version='0.5.0',
+    version='0.6.0',
     description="Python library which allows to use http://dataquality.pl in easy way.",
     long_description=readme + '\n\n' + history,
     author="Mikołaj Olszewski",
